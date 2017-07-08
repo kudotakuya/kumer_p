@@ -77,52 +77,7 @@ class mapViewController: UIViewController, MKMapViewDelegate {
     
     func getJson() {
         
-        let urlStr = "https://version1.xyz/spajam2017/gps.json"
-        
-        if let url = URL(string: urlStr) {
-            let req = NSMutableURLRequest(url: url)
-            req.httpMethod = "GET"
-            let task = URLSession.shared.dataTask(with: req as URLRequest, completionHandler: { (data, resp, err) in
-               // print(resp!.url!)
-                //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any)
-                
-                var coodList = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any
-                
-                
-                // 受け取ったdataをJSONパース、エラーならcatchへジャンプ
-                do {
-                    // dataをJSONパースし、グローバル変数"getJson"に格納
-                    self.Json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
-                    
-                    var lineCoordinate: [CLLocationCoordinate2D]! = []
-                    for i in 0..<self.Json.count {
-                        
-                        let list = self.Json[i] as! [Any]
-                        print(list[0] as! Double)
-                        lineCoordinate.append(CLLocationCoordinate2DMake(list[0] as! Double, list[1] as! Double))
-                        
-                    }
-                    
-                    //print(self.Json[0])
-                    
-                    // polyline作成.
-                    self.myPolyLine_1 = MKPolyline(coordinates: lineCoordinate, count: lineCoordinate.count)
-                    self.myMap.add(self.myPolyLine_1)
-                    
-                    
-                    
-                } catch {
-                    print ("json error")
-                    return
-                }
-                
-                
-            })
-            task.resume()
-            
-            
-        }
-        
+    
         // mapViewにcircleを追加.
 
  

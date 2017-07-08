@@ -11,29 +11,26 @@ import JSQMessagesViewController
 
 class massageViewController: JSQMessagesViewController { // ViewControllerからJSQMessagesViewControllerに変更する
     
-    var messages: [JSQMessage] = [
-        JSQMessage(senderId: "child", displayName: "B", text: "もうやだー"),
-        JSQMessage(senderId: "Parent",  displayName: "A", text: "どうしたの？"),
-        JSQMessage(senderId: "child", displayName: "B", text: "つかれたー"),
-    ]
+    
+    
+    var messages: [JSQMessage] = []
+    var max = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // 適当につける
         senderDisplayName = "A"
         senderId = "Parent"
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "background.png")?.draw(in: self.view.bounds)
         
-        let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+        setData()
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(massageViewController.getMessage), userInfo: nil, repeats: true)
         
-        UIGraphicsEndImageContext()
-        
-        
-        self.view.backgroundColor = UIColor(patternImage: image)
     }
+    
+
     
     //アイテムごとに参照するメッセージデータを返す
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -124,11 +121,31 @@ class massageViewController: JSQMessagesViewController { // ViewControllerから
         
         //キーボードを閉じる
         self.view.endEditing(true)
-        
         //メッセージを追加
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
         self.messages.append(message!)
         
+        let postString = "msg=\(text!)"
+        var request = URLRequest(url: URL(string: "https://version1.xyz/spajam2017/parent.php")!)
+        
+        request.httpMethod = "POST"
+        request.httpBody = postString.data(using: .utf8)
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: {
+            (data, response, error) in
+            
+            if (error == nil) {
+                // API通信成功
+                print("success")
+                print("response: \(response!)")
+                print(String(data: data!, encoding: .utf8)!)
+            } else {
+                // API通信失敗
+                print("error")
+            }
+        })
+        task.resume()
+    
         //送信を反映
         self.finishReceivingMessage(animated: true)
         
@@ -136,7 +153,7 @@ class massageViewController: JSQMessagesViewController { // ViewControllerから
         self.inputToolbar.contentView.textView.text = ""
         
         //テスト返信を呼ぶ
-        testRecvMessage()
+        //testRecvMessage()
     }
     
     //テスト用「マグロならあるよ！」を返す
@@ -145,6 +162,110 @@ class massageViewController: JSQMessagesViewController { // ViewControllerから
         let message = JSQMessage(senderId: "child", displayName: "B", text: "がんばる！")
         self.messages.append(message!)
         self.finishReceivingMessage(animated: true)
+    }
+    
+    func setData(){
+        
+        let urlStr = "https://version1.xyz/spajam2017/messages.php"
+        if let url = URL(string: urlStr) {
+            let req = NSMutableURLRequest(url: url)
+            req.httpMethod = "GET"
+            let task = URLSession.shared.dataTask(with: req as URLRequest, completionHandler: { (data, resp, err) in
+                // print(resp!.url!)
+                //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any)
+                
+                
+                // 受け取ったdataをJSONパース、エラーならcatchへジャンプ
+                do {
+                    // dataをJSONパースし、グローバル変数"getJson"に格納
+                    let Json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                    
+                    for i in 0..<Json.count {
+                        
+                        let list = Json[i] as! [String:Any]
+                        
+                        var sender = "Parent"
+                        var display = "A"
+                        
+                        if(list["person"] as! Bool){
+                            sender = "child"
+                            display = "B"
+                        }
+                        
+                        let message = JSQMessage(senderId: sender, displayName: display, text: list["message"] as! String)
+                        self.messages.append(message!)
+                        self.finishReceivingMessage(animated: true)
+                        
+                        self.max = list["id"] as! Int
+                        
+                        
+                    }
+                    
+                    
+                } catch {
+                    print ("json error")
+                    return
+                }
+                
+                
+            })
+            task.resume()
+            
+            
+        }
+    }
+    
+    func getMessage(){
+        
+        let min = 5
+        let urlStr = "https://version1.xyz/spajam2017/messages.php?id=" + String(max + 1)
+        print(urlStr);
+        if let url = URL(string: urlStr) {
+            let req = NSMutableURLRequest(url: url)
+            req.httpMethod = "GET"
+            let task = URLSession.shared.dataTask(with: req as URLRequest, completionHandler: { (data, resp, err) in
+                // print(resp!.url!)
+                //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any)
+                
+                
+                // 受け取ったdataをJSONパース、エラーならcatchへジャンプ
+                do {
+                    // dataをJSONパースし、グローバル変数"getJson"に格納
+                    let Json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                    
+                    for i in 0..<Json.count {
+                        
+                        let list = Json[i] as! [String:Any]
+                        
+                        var sender = "Parent"
+                        var display = "A"
+                        
+                        if(list["person"] as! Bool){
+                            sender = "child"
+                            display = "B"
+                        }
+                        
+                        let message = JSQMessage(senderId: sender, displayName: display, text: list["message"] as! String)
+                        self.messages.append(message!)
+                        self.finishReceivingMessage(animated: true)
+                        
+                        self.max = list["id"] as! Int
+                        
+                    }
+                    
+                    
+                } catch {
+                    print ("json error")
+                    return
+                }
+                
+                
+            })
+            task.resume()
+            
+            
+        }
+        
     }
     
     
