@@ -14,11 +14,13 @@ class mapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var myMap: MKMapView!
     var coordinate: CLLocationCoordinate2D!
+    var myPolyLine_1: MKPolyline!
     var line = MKPolyline() //直線
-    
+    var Json: NSArray!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // 中心点の緯度経度
         let lat: CLLocationDegrees = 35.252982
         let lon: CLLocationDegrees = 139.000761
@@ -44,24 +46,6 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         
         // 直線を引く座標を作成.
         
-        let coordinate_1 = CLLocationCoordinate2D(latitude: 35.253179, longitude: 139.000123)
-        
-        let coordinate_2 = CLLocationCoordinate2D(latitude: 35.253074, longitude: 139.000144)
-        
-        let coordinate_3 = CLLocationCoordinate2D(latitude: 35.253429, longitude: 139.000675)
-        
-        let coordinate_4 = CLLocationCoordinate2D(latitude: 35.253731, longitude: 139.000375)
-        
-        
-        
-        // 座標を配列に格納.
-        var coordinates_1 = [coordinate_1, coordinate_2, coordinate_3, coordinate_4]
-        
-        // polyline作成.
-        let myPolyLine_1: MKPolyline = MKPolyline(coordinates: &coordinates_1, count: coordinates_1.count)
-        
-        // mapViewにcircleを追加.
-        myMap.add(myPolyLine_1)
         
         // Do any additional setup after loading the view.
         
@@ -81,13 +65,71 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         
         // MapViewにピンを追加.
         myMap.addAnnotation(childPin)
-        
+
+        getJson()
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getJson() {
+        
+        let urlStr = "https://version1.xyz/spajam2017/gps.json"
+        
+        if let url = URL(string: urlStr) {
+            let req = NSMutableURLRequest(url: url)
+            req.httpMethod = "GET"
+            let task = URLSession.shared.dataTask(with: req as URLRequest, completionHandler: { (data, resp, err) in
+               // print(resp!.url!)
+                //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any)
+                
+                var coodList = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any
+                
+                
+                // 受け取ったdataをJSONパース、エラーならcatchへジャンプ
+                do {
+                    // dataをJSONパースし、グローバル変数"getJson"に格納
+                    self.Json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                    
+                    var lineCoordinate: [CLLocationCoordinate2D]! = []
+                    for i in 0..<self.Json.count {
+                        
+                        let list = self.Json[i] as! [Any]
+                        print(list[0] as! Double)
+                        lineCoordinate.append(CLLocationCoordinate2DMake(list[0] as! Double, list[1] as! Double))
+                        
+                    }
+                    
+                    //print(self.Json[0])
+                    
+                    // polyline作成.
+                    self.myPolyLine_1 = MKPolyline(coordinates: lineCoordinate, count: lineCoordinate.count)
+                    self.myMap.add(self.myPolyLine_1)
+                    
+                    
+                    
+                } catch {
+                    print ("json error")
+                    return
+                }
+                
+                
+            })
+            task.resume()
+            
+            
+        }
+        
+        // mapViewにcircleを追加.
+
+ 
+
+        
+        
+
     }
     
     /*
