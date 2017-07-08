@@ -11,6 +11,7 @@ import MapKit
 
 class mapViewController: UIViewController, MKMapViewDelegate {
 
+    
     @IBOutlet weak var myMap: MKMapView!
     var coordinate: CLLocationCoordinate2D!
     var line = MKPolyline() //直線
