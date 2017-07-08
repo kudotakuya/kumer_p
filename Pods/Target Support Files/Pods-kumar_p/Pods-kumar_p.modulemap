@@ -1,0 +1,6 @@
+framework module Pods_kumar_p {
+  umbrella header "Pods-kumar_p-umbrella.h"
+
+  export *
+  module * { export * }
+}
