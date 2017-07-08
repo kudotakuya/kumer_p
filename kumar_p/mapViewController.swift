@@ -66,7 +66,9 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         // MapViewにピンを追加.
         myMap.addAnnotation(childPin)
 
-        getJson()
+        getJson(complete:{pline in
+            self.myMap.add(pline)
+        })
 
     }
 
@@ -75,7 +77,7 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getJson() {
+    func getJson(complete:(MKPolyline?)->Void) {
         
         let urlStr = "https://version1.xyz/spajam2017/gps.json"
         
@@ -106,8 +108,9 @@ class mapViewController: UIViewController, MKMapViewDelegate {
                     //print(self.Json[0])
                     
                     // polyline作成.
-                    self.myPolyLine_1 = MKPolyline(coordinates: lineCoordinate, count: lineCoordinate.count)
-                    self.myMap.add(self.myPolyLine_1)
+                    let myPolyLine_1 = MKPolyline(coordinates: lineCoordinate, count: lineCoordinate.count)
+                    complete(myPloyLine_1)
+                    //self.myMap.add(self.myPolyLine_1)
                     
                     
                     
