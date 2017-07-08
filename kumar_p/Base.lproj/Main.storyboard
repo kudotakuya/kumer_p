@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="はなす" id="Rka-Ya-z2C"/>
+                    <tabBarItem key="tabBarItem" title="はなす" image="speaking2.png" selectedImage="speaking2.png" id="Rka-Ya-z2C"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dB1-P4-Ju0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,14 +40,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="dWO-ob-GsP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Xf-ME-thZ">
-                                <rect key="frame" x="16" y="101" width="343" height="455"/>
+                                <rect key="frame" x="16" y="106" width="343" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="さがす" image="haguruma.png" selectedImage="haguruma.png" id="gcw-BU-VCu"/>
+                    <tabBarItem key="tabBarItem" title="さがす" image="map2.png" selectedImage="map2.png" id="gcw-BU-VCu"/>
                     <connections>
                         <outlet property="myMap" destination="6Xf-ME-thZ" id="lsD-eb-WVX"/>
                     </connections>
@@ -104,6 +108,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="haguruma.png" width="30" height="30"/>
+        <image name="background.png" width="750" height="1334"/>
+        <image name="map2.png" width="26" height="28"/>
+        <image name="speaking2.png" width="30" height="27"/>
     </resources>
 </document>

@@ -23,6 +23,16 @@ class massageViewController: JSQMessagesViewController { // ViewControllerから
         // 適当につける
         senderDisplayName = "A"
         senderId = "Parent"
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIImage(named: "background.png")?.draw(in: self.view.bounds)
+        
+        let image: UIImage! = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        
+        self.view.backgroundColor = UIColor(patternImage: image)
     }
     
     //アイテムごとに参照するメッセージデータを返す
@@ -81,12 +91,12 @@ class massageViewController: JSQMessagesViewController { // ViewControllerから
         
         let message = messages[indexPath.item]
         if indexPath.item == 0 {
-            return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
+            return nil
         }
         if indexPath.item - 1 > 0 {
             let previousMessage = messages[indexPath.item - 1]
             if message.date.timeIntervalSince(previousMessage.date) / 60 > 1 {
-                return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
+                return nil
             }
         }
         return nil

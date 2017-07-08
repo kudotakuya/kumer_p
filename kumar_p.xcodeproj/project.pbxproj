@@ -22,6 +22,11 @@
 		88D839B51F112ADA00D4A26C /* haguruma.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839B41F112ADA00D4A26C /* haguruma.png */; };
 		88D839B81F1130E500D4A26C /* JSQMessagesViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D839B61F1130E500D4A26C /* JSQMessagesViewController.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		88D839B91F1130E500D4A26C /* JSQSystemSoundPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D839B71F1130E500D4A26C /* JSQSystemSoundPlayer.framework */; };
+		88D839C01F113F9F00D4A26C /* speaking.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839BF1F113F9F00D4A26C /* speaking.png */; };
+		88D839C41F11404D00D4A26C /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839C31F11404D00D4A26C /* map.png */; };
+		88D839C61F1140CA00D4A26C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839C51F1140CA00D4A26C /* background.png */; };
+		88D839CA1F11463E00D4A26C /* speaking2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839C91F11463E00D4A26C /* speaking2.png */; };
+		88D839CC1F11464300D4A26C /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839CB1F11464300D4A26C /* map2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +69,11 @@
 		88D839B61F1130E500D4A26C /* JSQMessagesViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQMessagesViewController.framework; path = "Pods/../build/Debug-iphoneos/JSQMessagesViewController/JSQMessagesViewController.framework"; sourceTree = "<group>"; };
 		88D839B71F1130E500D4A26C /* JSQSystemSoundPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSQSystemSoundPlayer.framework; path = "Pods/../build/Debug-iphoneos/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework"; sourceTree = "<group>"; };
 		88D839BB1F1132ED00D4A26C /* kumar_p-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kumar_p-Bridging-Header.h"; sourceTree = "<group>"; };
+		88D839BF1F113F9F00D4A26C /* speaking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaking.png; sourceTree = "<group>"; };
+		88D839C31F11404D00D4A26C /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		88D839C51F1140CA00D4A26C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		88D839C91F11463E00D4A26C /* speaking2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaking2.png; sourceTree = "<group>"; };
+		88D839CB1F11464300D4A26C /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2.png; sourceTree = "<group>"; };
 		906C81113A7EE3ABD246E4B7 /* Pods-kumar_p.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kumar_p.release.xcconfig"; path = "Pods/Target Support Files/Pods-kumar_p/Pods-kumar_p.release.xcconfig"; sourceTree = "<group>"; };
 		B8388DBF3AD7470483286982 /* Pods_kumar_p.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kumar_p.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -177,6 +187,11 @@
 		88D839AB1F1125C800D4A26C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				88D839C51F1140CA00D4A26C /* background.png */,
+				88D839BF1F113F9F00D4A26C /* speaking.png */,
+				88D839C91F11463E00D4A26C /* speaking2.png */,
+				88D839CB1F11464300D4A26C /* map2.png */,
+				88D839C31F11404D00D4A26C /* map.png */,
 				88D839AE1F1127D200D4A26C /* boy.png */,
 				88D839B41F112ADA00D4A26C /* haguruma.png */,
 			);
@@ -296,8 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				88D839AF1F1127D200D4A26C /* boy.png in Resources */,
+				88D839CC1F11464300D4A26C /* map2.png in Resources */,
+				88D839C61F1140CA00D4A26C /* background.png in Resources */,
+				88D839C01F113F9F00D4A26C /* speaking.png in Resources */,
 				88D839811F11198F00D4A26C /* LaunchScreen.storyboard in Resources */,
 				88D8397E1F11198F00D4A26C /* Assets.xcassets in Resources */,
+				88D839CA1F11463E00D4A26C /* speaking2.png in Resources */,
+				88D839C41F11404D00D4A26C /* map.png in Resources */,
 				88D8397C1F11198F00D4A26C /* Main.storyboard in Resources */,
 				88D839B51F112ADA00D4A26C /* haguruma.png in Resources */,
 			);
