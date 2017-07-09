@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1pO-zi-JI4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1pO-zi-JI4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="h5n-E6-375">
+            <objects>
+                <viewController id="nFI-Vb-KwR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e8X-6G-BC1"/>
+                        <viewControllerLayoutGuide type="bottom" id="lyX-BY-zCx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kky-t2-FI4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="EiP-kI-Ka5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jg-gj-q44" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="278" y="976"/>
+        </scene>
         <!--はなす-->
         <scene sceneID="tSx-9g-CeR">
             <objects>
@@ -81,7 +100,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="botton_top.png"/>
                                 <connections>
-                                    <segue destination="T4n-jV-8LN" kind="show" id="3NI-WP-mxj"/>
+                                    <segue destination="T4n-jV-8LN" kind="modal" id="UjH-nV-Jts"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,6 +123,7 @@
                     <connections>
                         <segue destination="HW9-Tu-KRJ" kind="relationship" relationship="viewControllers" id="5om-gv-vbF"/>
                         <segue destination="mxx-48-YCW" kind="relationship" relationship="viewControllers" id="zrT-Ka-OMw"/>
+                        <segue destination="nFI-Vb-KwR" kind="relationship" relationship="viewControllers" id="cyl-ar-Gzl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EEh-Ke-H0L" userLabel="First Responder" sceneMemberID="firstResponder"/>

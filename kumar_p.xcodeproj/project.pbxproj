@@ -29,6 +29,13 @@
 		88D839C61F1140CA00D4A26C /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839C51F1140CA00D4A26C /* background.png */; };
 		88D839CA1F11463E00D4A26C /* speaking2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839C91F11463E00D4A26C /* speaking2.png */; };
 		88D839CC1F11464300D4A26C /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D839CB1F11464300D4A26C /* map2.png */; };
+		8B8FCB1C1F11B4C9000A4446 /* AppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FCB1B1F11B4C9000A4446 /* AppRequest.swift */; };
+		8B8FCB1E1F11B555000A4446 /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8FCB1D1F11B555000A4446 /* APIKit.framework */; };
+		8B8FCB221F11B5D5000A4446 /* GPSDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FCB211F11B5D5000A4446 /* GPSDataRequest.swift */; };
+		8B8FCB241F11B629000A4446 /* GPSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FCB231F11B629000A4446 /* GPSData.swift */; };
+		8B8FCB261F11B64F000A4446 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FCB251F11B64F000A4446 /* Status.swift */; };
+		8B8FCB281F11B677000A4446 /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8FCB271F11B677000A4446 /* Tokenizer.swift */; };
+		8B8FCB2A1F11C8DB000A4446 /* Himotoki.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8FCB291F11C8DB000A4446 /* Himotoki.framework.dSYM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +85,14 @@
 		88D839C51F1140CA00D4A26C /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		88D839C91F11463E00D4A26C /* speaking2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaking2.png; sourceTree = "<group>"; };
 		88D839CB1F11464300D4A26C /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2.png; sourceTree = "<group>"; };
+		8B8FCB1B1F11B4C9000A4446 /* AppRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRequest.swift; sourceTree = "<group>"; };
+		8B8FCB1D1F11B555000A4446 /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
+		8B8FCB1F1F11B566000A4446 /* Himotoki.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Himotoki.framework; path = Carthage/Build/iOS/Himotoki.framework; sourceTree = "<group>"; };
+		8B8FCB211F11B5D5000A4446 /* GPSDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSDataRequest.swift; sourceTree = "<group>"; };
+		8B8FCB231F11B629000A4446 /* GPSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSData.swift; sourceTree = "<group>"; };
+		8B8FCB251F11B64F000A4446 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		8B8FCB271F11B677000A4446 /* Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
+		8B8FCB291F11C8DB000A4446 /* Himotoki.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Himotoki.framework.dSYM; path = Carthage/Build/iOS/Himotoki.framework.dSYM; sourceTree = "<group>"; };
 		906C81113A7EE3ABD246E4B7 /* Pods-kumar_p.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kumar_p.release.xcconfig"; path = "Pods/Target Support Files/Pods-kumar_p/Pods-kumar_p.release.xcconfig"; sourceTree = "<group>"; };
 		B8388DBF3AD7470483286982 /* Pods_kumar_p.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kumar_p.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8FCB2A1F11C8DB000A4446 /* Himotoki.framework.dSYM in Frameworks */,
+				8B8FCB1E1F11B555000A4446 /* APIKit.framework in Frameworks */,
 				88D839B81F1130E500D4A26C /* JSQMessagesViewController.framework in Frameworks */,
 				88D839B91F1130E500D4A26C /* JSQSystemSoundPlayer.framework in Frameworks */,
 				88D839AA1F111F5E00D4A26C /* MapKit.framework in Frameworks */,
@@ -155,6 +172,11 @@
 				88D839A41F111D5200D4A26C /* massageViewController.swift */,
 				88D839A61F111E6A00D4A26C /* mapViewController.swift */,
 				88D839BB1F1132ED00D4A26C /* kumar_p-Bridging-Header.h */,
+				8B8FCB1B1F11B4C9000A4446 /* AppRequest.swift */,
+				8B8FCB211F11B5D5000A4446 /* GPSDataRequest.swift */,
+				8B8FCB231F11B629000A4446 /* GPSData.swift */,
+				8B8FCB251F11B64F000A4446 /* Status.swift */,
+				8B8FCB271F11B677000A4446 /* Tokenizer.swift */,
 			);
 			path = kumar_p;
 			sourceTree = "<group>";
@@ -180,6 +202,9 @@
 		88D839A81F111F5E00D4A26C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B8FCB291F11C8DB000A4446 /* Himotoki.framework.dSYM */,
+				8B8FCB1F1F11B566000A4446 /* Himotoki.framework */,
+				8B8FCB1D1F11B555000A4446 /* APIKit.framework */,
 				88D839B61F1130E500D4A26C /* JSQMessagesViewController.framework */,
 				88D839B71F1130E500D4A26C /* JSQSystemSoundPlayer.framework */,
 				88D839A91F111F5E00D4A26C /* MapKit.framework */,
@@ -217,6 +242,7 @@
 				88D839711F11198F00D4A26C /* Resources */,
 				2F41D821E8E346D26993E682 /* [CP] Embed Pods Frameworks */,
 				E44D3375465DA4B922D7DA75 /* [CP] Copy Pods Resources */,
+				8B8FCB2E1F11CA87000A4446 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,7 +301,7 @@
 				TargetAttributes = {
 					88D839721F11198F00D4A26C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 89368WAFTH;
+						DevelopmentTeam = V593FRGL38;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -378,6 +404,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		8B8FCB2E1F11CA87000A4446 /* Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/build/iOS/Himotoki.framework",
+				"$(SRCROOT)/Carthage/build/iOS/APIKit.framework",
+				"$(SRCROOT)/Carthage/build/iOS/Result.framework",
+			);
+			name = "Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		E44D3375465DA4B922D7DA75 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -402,7 +445,12 @@
 			files = (
 				88D839A51F111D5200D4A26C /* massageViewController.swift in Sources */,
 				88D839791F11198F00D4A26C /* ViewController.swift in Sources */,
+				8B8FCB221F11B5D5000A4446 /* GPSDataRequest.swift in Sources */,
+				8B8FCB261F11B64F000A4446 /* Status.swift in Sources */,
 				88D839771F11198F00D4A26C /* AppDelegate.swift in Sources */,
+				8B8FCB1C1F11B4C9000A4446 /* AppRequest.swift in Sources */,
+				8B8FCB241F11B629000A4446 /* GPSData.swift in Sources */,
+				8B8FCB281F11B677000A4446 /* Tokenizer.swift in Sources */,
 				88D839A71F111E6A00D4A26C /* mapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,11 +605,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 89368WAFTH;
+				DEVELOPMENT_TEAM = V593FRGL38;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JSQMessagesViewController",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JSQSystemSoundPlayer",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = kumar_p/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -579,11 +628,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 89368WAFTH;
+				DEVELOPMENT_TEAM = V593FRGL38;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JSQMessagesViewController",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/JSQSystemSoundPlayer",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = kumar_p/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

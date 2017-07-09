@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import APIKit
 
 class mapViewController: UIViewController, MKMapViewDelegate {
 
@@ -65,8 +66,33 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         
         // MapViewにピンを追加.
         myMap.addAnnotation(childPin)
+        
+        let request = GPSDataRequest()
+        Session.send(request) { result in
+            switch result {
+                
+            case .success(let responses):
+                print(responses)
+                //let list = responses as [Any]
+                var latlonlist: [CLLocationCoordinate2D]! = []
+                for i in 0..<responses.count {
+                    print(responses[i].lat)
+                    
+                //print(list[i])
+                
+                    latlonlist.append(CLLocationCoordinate2DMake(responses[i].lat as! Double, responses[i].lon as! Double))
+                    self.myMap.add(MKPolyline(coordinates: latlonlist, count: latlonlist.count))
+                    
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
 
-        getJson()
+//        //getJson(complete:{pline in
+//            self.myMap.add(pline)
+//        })
 
     }
 
@@ -75,16 +101,56 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getJson() {
+    func getJson(complete: @escaping(MKPolyline!)->Void!) {
+        
+        let urlStr = "https://version1.xyz/spajam2017/gps.json"
+        
+        if let url = URL(string: urlStr) {
+            let req = NSMutableURLRequest(url: url)
+            req.httpMethod = "GET"
+            let task = URLSession.shared.dataTask(with: req as URLRequest, completionHandler: { (data, resp, err) in
+               // print(resp!.url!)
+                //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any)
+                
+                var coodList = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as Any
+                
+                
+                // 受け取ったdataをJSONパース、エラーならcatchへジャンプ
+                do {
+                    // dataをJSONパースし、グローバル変数"getJson"に格納
+                    self.Json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
+                    
+                    var lineCoordinate: [CLLocationCoordinate2D]! = []
+                    for i in 0..<self.Json.count {
+                        
+                        let list = self.Json[i] as! [Any]
+                        print(list[0] as! Double)
+                        lineCoordinate.append(CLLocationCoordinate2DMake(list[0] as! Double, list[1] as! Double))
+                        
+                    }
+                    
+                    //print(self.Json[0])
+                    
+                    // polyline作成.
+                    complete(MKPolyline(coordinates: lineCoordinate, count: lineCoordinate.count))
+                    //self.myMap.add(self.myPolyLine_1)
+                    
+                    
+                    
+                } catch {
+                    print ("json error")
+                    return
+                }
+                
+                
+            })
+            task.resume()
+            
+            
+        }
         
     
         // mapViewにcircleを追加.
-
- 
-
-        
-        
-
     }
     
     /*
