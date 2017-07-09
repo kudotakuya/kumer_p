@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import APIKit
 
 class mapViewController: UIViewController, MKMapViewDelegate {
 
@@ -65,10 +66,33 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         
         // MapViewにピンを追加.
         myMap.addAnnotation(childPin)
+        
+        let request = GPSDataRequest()
+        Session.send(request) { result in
+            switch result {
+                
+            case .success(let responses):
+                print(responses)
+                //let list = responses as [Any]
+                var latlonlist: [CLLocationCoordinate2D]! = []
+                for i in 0..<responses.count {
+                    print(responses[i].lat)
+                    
+                //print(list[i])
+                
+                    latlonlist.append(CLLocationCoordinate2DMake(responses[i].lat as! Double, responses[i].lon as! Double))
+                    self.myMap.add(MKPolyline(coordinates: latlonlist, count: latlonlist.count))
+                    
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
 
-        getJson(complete:{pline in
-            self.myMap.add(pline)
-        })
+//        //getJson(complete:{pline in
+//            self.myMap.add(pline)
+//        })
 
     }
 
@@ -77,7 +101,7 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getJson(complete:(MKPolyline?)->Void) {
+    func getJson(complete: @escaping(MKPolyline!)->Void!) {
         
         let urlStr = "https://version1.xyz/spajam2017/gps.json"
         
@@ -108,8 +132,7 @@ class mapViewController: UIViewController, MKMapViewDelegate {
                     //print(self.Json[0])
                     
                     // polyline作成.
-                    let myPolyLine_1 = MKPolyline(coordinates: lineCoordinate, count: lineCoordinate.count)
-                    complete(myPloyLine_1)
+                    complete(MKPolyline(coordinates: lineCoordinate, count: lineCoordinate.count))
                     //self.myMap.add(self.myPolyLine_1)
                     
                     
@@ -127,12 +150,6 @@ class mapViewController: UIViewController, MKMapViewDelegate {
         }
         
         // mapViewにcircleを追加.
-
- 
-
-        
-        
-
     }
     
     /*
