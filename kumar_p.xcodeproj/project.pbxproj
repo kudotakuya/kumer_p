@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F8DD9CFB15642451785FC72 /* Pods_kumar_p.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8388DBF3AD7470483286982 /* Pods_kumar_p.framework */; };
+		886593101F118323002884D5 /* background_iphone7_top-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 8865930F1F118323002884D5 /* background_iphone7_top-01.png */; };
+		886593141F118370002884D5 /* botton_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 886593131F118370002884D5 /* botton_top.png */; };
 		88D839771F11198F00D4A26C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D839761F11198F00D4A26C /* AppDelegate.swift */; };
 		88D839791F11198F00D4A26C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D839781F11198F00D4A26C /* ViewController.swift */; };
 		88D8397C1F11198F00D4A26C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D8397A1F11198F00D4A26C /* Main.storyboard */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		6002605039CE855405155D57 /* Pods-kumar_p.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kumar_p.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kumar_p/Pods-kumar_p.debug.xcconfig"; sourceTree = "<group>"; };
+		8865930F1F118323002884D5 /* background_iphone7_top-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_iphone7_top-01.png"; sourceTree = "<group>"; };
+		886593131F118370002884D5 /* botton_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = botton_top.png; sourceTree = "<group>"; };
 		88D839731F11198F00D4A26C /* kumar_p.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kumar_p.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D839761F11198F00D4A26C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88D839781F11198F00D4A26C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 				88D839C31F11404D00D4A26C /* map.png */,
 				88D839AE1F1127D200D4A26C /* boy.png */,
 				88D839B41F112ADA00D4A26C /* haguruma.png */,
+				886593131F118370002884D5 /* botton_top.png */,
+				8865930F1F118323002884D5 /* background_iphone7_top-01.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88D839AF1F1127D200D4A26C /* boy.png in Resources */,
+				886593141F118370002884D5 /* botton_top.png in Resources */,
 				88D839CC1F11464300D4A26C /* map2.png in Resources */,
 				88D839C61F1140CA00D4A26C /* background.png in Resources */,
 				88D839C01F113F9F00D4A26C /* speaking.png in Resources */,
@@ -345,6 +352,7 @@
 				88D839CA1F11463E00D4A26C /* speaking2.png in Resources */,
 				88D839C41F11404D00D4A26C /* map.png in Resources */,
 				88D8397C1F11198F00D4A26C /* Main.storyboard in Resources */,
+				886593101F118323002884D5 /* background_iphone7_top-01.png in Resources */,
 				88D839B51F112ADA00D4A26C /* haguruma.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

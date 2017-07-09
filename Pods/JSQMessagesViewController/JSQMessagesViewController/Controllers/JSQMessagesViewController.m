@@ -169,10 +169,11 @@ JSQMessagesKeyboardControllerDelegate>
 
 - (void)jsq_configureMessagesViewController
 {
+    NSLog(@"aa");
     self.view.backgroundColor = [UIColor whiteColor];
 
     self.jsq_isObserving = NO;
-
+    NSLog(@"aa");
     self.toolbarHeightConstraint.constant = self.inputToolbar.preferredDefaultHeight;
 
     self.collectionView.dataSource = self;
@@ -203,7 +204,7 @@ JSQMessagesKeyboardControllerDelegate>
     self.topContentAdditionalInset = 0.0f;
 
     [self jsq_updateCollectionViewInsets];
-
+    NSLog(@"aa");
     // Don't set keyboardController if client creates custom content view via -loadToolbarContentView
     if (self.inputToolbar.contentView.textView != nil) {
         self.keyboardController = [[JSQMessagesKeyboardController alloc] initWithTextView:self.inputToolbar.contentView.textView
@@ -804,7 +805,7 @@ JSQMessagesKeyboardControllerDelegate>
     if (textView != self.inputToolbar.contentView.textView) {
         return;
     }
-
+    NSLog(@"aa");
     [textView becomeFirstResponder];
 
     if (self.automaticallyScrollsToMostRecentMessage) {
@@ -824,9 +825,10 @@ JSQMessagesKeyboardControllerDelegate>
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if (textView != self.inputToolbar.contentView.textView) {
+     NSLog(@"aaa");
         return;
     }
-
+    
     [textView resignFirstResponder];
 }
 
@@ -926,7 +928,7 @@ JSQMessagesKeyboardControllerDelegate>
 
 - (void)jsq_updateKeyboardTriggerPoint
 {
-    self.keyboardController.keyboardTriggerPoint = CGPointMake(0.0f, CGRectGetHeight(self.inputToolbar.bounds));
+    self.keyboardController.keyboardTriggerPoint = CGPointMake(44.0f, CGRectGetHeight(self.inputToolbar.bounds));
 }
 
 #pragma mark - Gesture recognizers
@@ -948,7 +950,7 @@ JSQMessagesKeyboardControllerDelegate>
                 [self.inputToolbar.contentView.textView resignFirstResponder];
                 [UIView animateWithDuration:0.0
                                  animations:^{
-                                     [self jsq_setToolbarBottomLayoutGuideConstant:0.0];
+                                     [self jsq_setToolbarBottomLayoutGuideConstant:44.0];
                                  }];
 
                 UIView *snapshot = [self.view snapshotViewAfterScreenUpdates:YES];
@@ -980,6 +982,7 @@ JSQMessagesKeyboardControllerDelegate>
 
 - (BOOL)jsq_inputToolbarHasReachedMaximumHeight
 {
+    NSLog(@"aa");
     return CGRectGetMinY(self.inputToolbar.frame) == (self.topLayoutGuide.length + self.topContentAdditionalInset);
 }
 
@@ -1033,9 +1036,10 @@ JSQMessagesKeyboardControllerDelegate>
 
 - (void)jsq_scrollComposerTextViewToBottomAnimated:(BOOL)animated
 {
+    NSLog(@"aa");
     UITextView *textView = self.inputToolbar.contentView.textView;
-    CGPoint contentOffsetToShowLastLine = CGPointMake(0.0f, textView.contentSize.height - CGRectGetHeight(textView.bounds));
-
+    CGPoint contentOffsetToShowLastLine = CGPointMake(100, textView.contentSize.height - 300);
+    NSLog(@"aa");
     if (!animated) {
         textView.contentOffset = contentOffsetToShowLastLine;
         return;

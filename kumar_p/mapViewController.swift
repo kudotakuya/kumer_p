@@ -149,6 +149,7 @@ class mapViewController: UIViewController, MKMapViewDelegate {
             
         }
         
+    
         // mapViewにcircleを追加.
     }
     

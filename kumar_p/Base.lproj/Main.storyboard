@@ -64,7 +64,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6Xf-ME-thZ">
-                                <rect key="frame" x="16" y="106" width="343" height="455"/>
+                                <rect key="frame" x="0.0" y="106" width="375" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
@@ -91,10 +91,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msi-8R-Zp7">
-                                <rect key="frame" x="111" y="412" width="153" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_iphone7_top-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZlG-vi-ek8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="おつかいの状況を見る"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msi-8R-Zp7">
+                                <rect key="frame" x="8" y="373" width="359" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="botton_top.png"/>
                                 <connections>
                                     <segue destination="T4n-jV-8LN" kind="modal" id="UjH-nV-Jts"/>
                                 </connections>
@@ -105,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onQ-vE-MYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-938" y="161"/>
+            <point key="canvasLocation" x="-938.39999999999998" y="160.56971514242881"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AFL-lI-762">
@@ -129,6 +133,8 @@
     </scenes>
     <resources>
         <image name="background.png" width="750" height="1334"/>
+        <image name="background_iphone7_top-01.png" width="750" height="1334"/>
+        <image name="botton_top.png" width="300" height="66"/>
         <image name="map2.png" width="26" height="28"/>
         <image name="speaking2.png" width="30" height="27"/>
     </resources>
