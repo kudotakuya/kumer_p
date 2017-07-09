@@ -260,6 +260,7 @@ typedef void (^JSQAnimationCompletionBlock)(BOOL finished);
 
 - (void)jsq_resetKeyboardAndTextView
 {
+    NSLog(@"aaa");
     [self jsq_setKeyboardViewHidden:YES];
     [self jsq_removeKeyboardFrameObserver];
     [self.textView resignFirstResponder];
@@ -307,6 +308,7 @@ typedef void (^JSQAnimationCompletionBlock)(BOOL finished);
 
 - (void)jsq_handlePanGestureRecognizer:(UIPanGestureRecognizer *)pan
 {
+    NSLog(@"aa");
     CGPoint touch = [pan locationInView:self.contextView.window];
 
     //  system keyboard is added to a new UIWindow, need to operate in window coordinates
@@ -329,7 +331,7 @@ typedef void (^JSQAnimationCompletionBlock)(BOOL finished);
     BOOL userIsDraggingNearThresholdForDismissing = (touch.y > dragThresholdY);
 
     self.keyboardView.userInteractionEnabled = !userIsDraggingNearThresholdForDismissing;
-
+    NSLog(@"aa");
     switch (pan.state) {
         case UIGestureRecognizerStateChanged:
         {
@@ -368,7 +370,7 @@ typedef void (^JSQAnimationCompletionBlock)(BOOL finished);
             BOOL shouldHide = (userIsScrollingDown && userIsDraggingNearThresholdForDismissing);
 
             newKeyboardViewFrame.origin.y = shouldHide ? contextViewWindowHeight : (contextViewWindowHeight - keyboardViewHeight);
-
+            NSLog(@"aa");
             [UIView animateWithDuration:0.25
                                   delay:0.0
                                 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationCurveEaseOut

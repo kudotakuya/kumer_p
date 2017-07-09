@@ -120,7 +120,7 @@ class massageViewController: JSQMessagesViewController { // ViewControllerから
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
         //キーボードを閉じる
-        self.view.endEditing(true)
+        //self.view.endEditing(true)
         //メッセージを追加
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
         self.messages.append(message!)
